@@ -1,0 +1,61 @@
+<UserControl x:Class="AacV1.Views.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:core="clr-namespace:AacV1.Core.Models">
+    <ScrollViewer Margin="12">
+        <StackPanel>
+            <TextBlock Text="入力方式" FontWeight="Bold" />
+            <ComboBox SelectedValue="{Binding Settings.InputMode}" SelectedValuePath="Tag" Width="200">
+                <ComboBoxItem Content="キーボード" Tag="{x:Static core:InputMode.Keyboard}" />
+                <ComboBoxItem Content="自動走査" Tag="{x:Static core:InputMode.AutoScan}" />
+                <ComboBoxItem Content="2スイッチ" Tag="{x:Static core:InputMode.TwoSwitch}" />
+                <ComboBoxItem Content="ドウェル" Tag="{x:Static core:InputMode.Dwell}" />
+            </ComboBox>
+
+            <TextBlock Text="走査速度(ms)" Margin="0,12,0,0" />
+            <TextBox Text="{Binding Settings.ScanIntervalMs}" Width="120" />
+
+            <TextBlock Text="ドウェル1段階(ms)" Margin="0,12,0,0" />
+            <TextBox Text="{Binding Settings.DwellFirstStageMs}" Width="120" />
+
+            <TextBlock Text="ドウェル2段階(ms)" Margin="0,12,0,0" />
+            <TextBox Text="{Binding Settings.DwellSecondStageMs}" Width="120" />
+
+            <TextBlock Text="キーサイズ" Margin="0,12,0,0" />
+            <TextBox Text="{Binding Settings.KeySize}" Width="120" />
+
+            <TextBlock Text="フォントサイズ" Margin="0,12,0,0" />
+            <TextBox Text="{Binding Settings.FontSize}" Width="120" />
+
+            <TextBlock Text="読み上げ速度" Margin="0,12,0,0" />
+            <TextBox Text="{Binding Settings.SpeechRate}" Width="120" />
+
+            <TextBlock Text="音量" Margin="0,12,0,0" />
+            <TextBox Text="{Binding Settings.SpeechVolume}" Width="120" />
+
+            <TextBlock Text="声" Margin="0,12,0,0" />
+            <ComboBox ItemsSource="{Binding Voices}" SelectedItem="{Binding Settings.SpeechVoice}" Width="260" />
+
+            <TextBlock Text="2スイッチ Next キー" Margin="0,12,0,0" />
+            <TextBox Text="{Binding Settings.TwoSwitchNextKey}" Width="120" />
+            <TextBlock Text="2スイッチ Select キー" Margin="0,12,0,0" />
+            <TextBox Text="{Binding Settings.TwoSwitchSelectKey}" Width="120" />
+
+            <TextBlock Text="SMTP設定" FontWeight="Bold" Margin="0,16,0,0" />
+            <TextBlock Text="ホスト" />
+            <TextBox Text="{Binding Settings.Smtp.Host}" Width="240" />
+            <TextBlock Text="ポート" />
+            <TextBox Text="{Binding Settings.Smtp.Port}" Width="120" />
+            <TextBlock Text="SSL" />
+            <CheckBox IsChecked="{Binding Settings.Smtp.UseSsl}" Content="SSLを使用" />
+            <TextBlock Text="ユーザー" />
+            <TextBox Text="{Binding Settings.Smtp.Username}" Width="240" />
+            <TextBlock Text="パスワード" />
+            <PasswordBox PasswordChar="*" PasswordChanged="PasswordBox_OnPasswordChanged" />
+            <TextBlock Text="差出人" />
+            <TextBox Text="{Binding Settings.Smtp.FromAddress}" Width="240" />
+
+            <Button Content="保存" Command="{Binding SaveCommand}" Margin="0,12,0,0" />
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

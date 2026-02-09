@@ -1,0 +1,51 @@
+<Application x:Class="AacV1.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:AacV1.VM"
+             xmlns:views="clr-namespace:AacV1.Views"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Yu Gothic UI, Meiryo UI" />
+            <Setter Property="FontSize" Value="20" />
+        </Style>
+        <Style TargetType="Control">
+            <Setter Property="FontFamily" Value="Yu Gothic UI, Meiryo UI" />
+            <Setter Property="FontSize" Value="20" />
+        </Style>
+
+        <DataTemplate DataType="{x:Type vm:HomeViewModel}">
+            <views:HomeView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:KanaBoardViewModel}">
+            <views:KanaBoardView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:PhraseViewModel}">
+            <views:PhraseView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:HistoryViewModel}">
+            <views:HistoryView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:PcControlViewModel}">
+            <views:PcControlView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:WebViewModel}">
+            <views:WebView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:MailViewModel}">
+            <views:MailView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:EnvControlViewModel}">
+            <views:EnvControlView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:SettingsViewModel}">
+            <views:SettingsView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:SupporterViewModel}">
+            <views:SupporterView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:SelfTestViewModel}">
+            <views:SelfTestView />
+        </DataTemplate>
+    </Application.Resources>
+</Application>
