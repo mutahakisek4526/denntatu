@@ -1,0 +1,28 @@
+<UserControl x:Class="AacV1.Views.SelfTestView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <Button Content="セルフテスト実行" Command="{Binding RunCommand}" Margin="4" />
+            <Button Content="PC操作テストターゲット" Margin="4" Click="OnPcTargetClick" x:Name="PcTargetButton" />
+        </StackPanel>
+
+        <ListView Grid.Row="1" ItemsSource="{Binding Results}" Margin="0,8,0,8">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="項目" DisplayMemberBinding="{Binding Name}" Width="200" />
+                    <GridViewColumn Header="結果" DisplayMemberBinding="{Binding Passed}" Width="80" />
+                    <GridViewColumn Header="詳細" DisplayMemberBinding="{Binding Details}" Width="500" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <TextBlock Grid.Row="2" Text="{Binding ManualSteps}" TextWrapping="Wrap" />
+    </Grid>
+</UserControl>
